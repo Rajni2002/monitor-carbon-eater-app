@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type StatusTypes = "Good" | "Satisfactory" | "Moderately polluted" | "Poor" | "Very Poor" | "Severe"
 
@@ -17,10 +17,19 @@ const useAppContext = () => {
             pm2dec5: 10.05,
             no2: 8.57,
             other: 9.9
+        },
+        dummy: {
+            deviceId: "GJAMD-b40f53f2",
+            vehicleDensity: "4"
         }
     })
-
     return appState;
 };
 
 export default useAppContext;
+// https://api.openweathermap.org/data/2.5/weather?lat=60&lon=30&appid=206993f2213eb386550b79602da0d3ee
+/**
+ * 
+Air quality is poor.
+Please follow the Mentioned Precautions.
+ */
