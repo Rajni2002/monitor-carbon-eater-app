@@ -13,7 +13,8 @@ export const Notification = () => {
         <NovuProvider subscriberId="6537c9e35d52f64aae0e1d8f" applicationIdentifier={'vs4fK7LaheE-'} styles={{
             layout: {
                 root: {
-                    width: !matches ? "30vw" : "100vw"
+                    width: !matches ? "30vw" : "100vw",
+                    background: "blur(10px)"
                 }
             }
         }}>
