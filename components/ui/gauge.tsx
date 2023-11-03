@@ -1,3 +1,5 @@
+import { gaugeColor } from "@/lib/utils";
+
 export const Gauge = ({
     value,
     size = "small",
@@ -7,8 +9,9 @@ export const Gauge = ({
     size: "small" | "medium" | "large";
     showValue: boolean;
 }) => {
+    const valuePercent = ((value / 500) * 100);
     const circumference = 332; //2 * Math.PI * 53; // 2 * pi * radius
-    const valueInCircumference = (value / 100) * circumference;
+    const valueInCircumference = ((100 - valuePercent) / 100) * circumference;
     const strokeDasharray = `${circumference} ${circumference}`;
     const initialOffset = circumference;
     const strokeDashoffset = initialOffset - valueInCircumference;
@@ -32,7 +35,7 @@ export const Gauge = ({
     };
 
     return (
-        <div className="flex flex-col items-center justify-center relative mt-10">
+        <div className="flex flex-col items-center justify-center relative mt-5">
             <svg
                 fill="none"
                 shapeRendering="crispEdges"
@@ -43,7 +46,7 @@ export const Gauge = ({
                 className="transform -rotate-90"
             >
                 <circle
-                    className="text-[#333]"
+                    className="text-[#cecece]"
                     strokeWidth="12"
                     stroke="currentColor"
                     fill="transparent"
@@ -53,13 +56,13 @@ export const Gauge = ({
                     cy="60"
                 />
                 <circle
-                    className="text-[hsla(131,41%,46%,1)] animate-gauge_fill"
+                    className="animate-gauge_fill"
                     strokeWidth="12"
                     strokeDasharray={strokeDasharray}
                     strokeDashoffset={initialOffset}
                     shapeRendering="geometricPrecision"
                     strokeLinecap="round"
-                    stroke="currentColor"
+                    stroke={gaugeColor(valuePercent).bgcolor}
                     fill="transparent"
                     r="53"
                     cx="60"

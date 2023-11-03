@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 
-type StatusTypes = "Good" | "Satisfactory" | "Moderately polluted" | "Poor" | "Very Poor" | "Severe"
+// type StatusTypes = "Good" | "Satisfactory" | "Moderately polluted" | "Poor" | "Very Poor" | "Severe"
 
 
 const useAppContext = () => {
@@ -10,9 +10,8 @@ const useAppContext = () => {
             city: "Ahmedabad",
             state: "Gujarat"
         },
-        status: "Good",
         airQuality: {
-            index: 40,
+            index: 171,
             pm10: 12.43,
             pm2dec5: 10.05,
             no2: 8.57,
@@ -23,7 +22,7 @@ const useAppContext = () => {
             vehicleDensity: "4"
         }
     })
-    return appState;
+    return {appState, setAppState};
 };
 
 export default useAppContext;

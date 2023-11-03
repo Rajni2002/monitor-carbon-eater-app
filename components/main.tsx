@@ -8,9 +8,12 @@ import Map from './map';
 import { Separator } from './ui/separator';
 import AlertModal from './alert';
 import { useSocket } from '@novu/notification-center';
+import AlertBeacon from "./alert-beacon"
+import { cn, gaugeColor } from '@/lib/utils';
+import { Chart } from './chart';
 
 const Main = () => {
-    const appState = useAppContext();
+    const { appState, setAppState } = useAppContext();
     const [open, setOpen] = useState<boolean>(false);
 
     const { socket } = useSocket();
@@ -31,11 +34,13 @@ const Main = () => {
 
     return (
         <div className='p-4'>
-            <Badge >{appState.status}</Badge>
+            <AlertBeacon openAlertHandler={() => setOpen(true)} />
             <h1 className='text-2xl mt-4 font-bold dark:text-white'>{appState.location.city}</h1>
             <h3 className='text-lg mt-1 font-semibold text-gray-500 dark:text-white'>{appState.location.state}</h3>
-            <Gauge value={45} size='large' showValue />
+            <Badge className={`mt-6 bg-gray-200 text-gray-800`} >{gaugeColor(appState.airQuality.index / 500 * 100).status}</Badge>
+            <Gauge value={appState.airQuality.index} size='large' showValue />
             <MicroCards />
+            <Chart />
             <Separator />
             <Map />
             <AlertModal open={open} handleOpen={(open) => setOpen(open)} />

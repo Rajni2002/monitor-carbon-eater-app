@@ -1,0 +1,12 @@
+curl --location --request POST 'https://api.novu.co/v1/events/trigger' \
+     --header 'Authorization: ApiKey 192f35e81cbccec340cdbff44bd11eae' \
+     --header 'Content-Type: application/json' \
+     --data-raw '{
+         "name": "carbon-eater-notification",
+         "to": {
+           "subscriberId": "6537c9e35d52f64aae0e1d8f"
+         },
+         "payload": {
+           "__source": "test-workflow"
+         }
+       }'
