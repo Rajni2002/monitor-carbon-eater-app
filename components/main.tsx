@@ -21,14 +21,17 @@ const Main = () => {
     const { socket } = useSocket();
 
     useEffect(() => {
-        if (socket)
-            socket.on("notification_received", (data) => {
+        if (socket) {
+            socket.on("notification_received", () => {
                 if (!open) setOpen(true);
                 if (!alertBeacon) setAlertBeacon(true);
             });
+        }
 
         return () => {
-            if (socket) socket.off("notification_received");
+            if (socket) {
+                socket.off("notification_received");
+            }
         };
     }, [socket, open, alertBeacon]);
 

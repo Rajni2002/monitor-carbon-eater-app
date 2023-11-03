@@ -27,8 +27,6 @@ const MicroCards = () => {
                 loading: true
             }))
             fetchWeather().then((data) => {
-                console.log(data);
-
                 setAppState(prev => ({
                     ...prev,
                     loading: false,
@@ -59,7 +57,7 @@ const MicroCards = () => {
                     <Card className='backdrop-blur-sm bg-black/5 p-4'>
                         <h4 className='text-md font-semibold text-gray-500'>Windspeed</h4>
                         <div style={{
-                            rotate: `${appState.weather?.data?.wind?.deg}deg`
+                            rotate: `${appState.weather?.data?.wind?.deg ?? 67}deg`
                         }}>
                             <DirectionIcon className="my-4 mx-auto" />
                         </div>
