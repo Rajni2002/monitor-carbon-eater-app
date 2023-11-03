@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const useAppContext = () => {
     const [appState, setAppState] = useState({
+        loading: false,
         location: {
             city: "Ahmedabad",
             state: "Gujarat"
@@ -20,9 +21,10 @@ const useAppContext = () => {
         dummy: {
             deviceId: "GJAMD-b40f53f2",
             vehicleDensity: "4"
-        }
+        },
+        weather: null
     })
-    return {appState, setAppState};
+    return { appState, setAppState };
 };
 
 export default useAppContext;

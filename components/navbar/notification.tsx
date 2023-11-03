@@ -6,8 +6,10 @@ import {
     ButtonTypeEnum,
     IMessage,
 } from '@novu/notification-center';
+import { useTheme } from 'next-themes';
 
 export const Notification = () => {
+    const { theme } = useTheme();
     async function handlerOnActionClick(
         templateIdentifier: string,
         type: ButtonTypeEnum,
@@ -16,7 +18,7 @@ export const Notification = () => {
         console.log("ƒ")
     }
     return (
-        <PopoverNotificationCenter colorScheme={'light'} onActionClick={handlerOnActionClick}>
+        <PopoverNotificationCenter colorScheme={theme === "dark" ? "dark" : "light"} onActionClick={handlerOnActionClick}>
             {({ unseenCount }) => <NotificationBell unseenCount={unseenCount} />}
         </PopoverNotificationCenter>
     );

@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const gaugeColor = (valuePercent: number) => {
+const gaugeColor = (valuePercent: number) => {
   let gaugeStyle = {
     textColor: "black",
     bgcolor: "",
@@ -45,3 +45,14 @@ export const gaugeColor = (valuePercent: number) => {
   }
   return gaugeStyle
 }
+
+const checkEnvironment = () => {
+  let base_url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://monitor-carbon-eater-app.vercel.app/"; // https://v2ds.netlify.app
+
+  return base_url;
+};
+
+export { gaugeColor, checkEnvironment }

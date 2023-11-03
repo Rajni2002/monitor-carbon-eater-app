@@ -1,6 +1,7 @@
 "use client"
 import Main from "@/components/main"
-import Navbar from "@/components/navbar"
+import Navbar from "@/components/navbar/navbar"
+import { ThemeProvider } from "@/components/theme-provider"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { NovuProvider } from "@novu/notification-center"
 
@@ -15,10 +16,17 @@ export default function Home() {
         }
       }
     }}>
-      <main className="flex min-h-screen flex-col justify-start py-5 dark:bg-black">
-        <Navbar />
-        <Main />
-      </main>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <main className="flex min-h-screen flex-col justify-start py-5 dark:bg-black">
+          <Navbar />
+          <Main />
+        </main>
+      </ThemeProvider>
     </NovuProvider>
   )
 }

@@ -46,7 +46,7 @@ export const Gauge = ({
                 className="transform -rotate-90"
             >
                 <circle
-                    className="text-[#cecece]"
+                    className="text-[#cecece] dark:text-[#2e2e2e]"
                     strokeWidth="12"
                     stroke="currentColor"
                     fill="transparent"
