@@ -7,8 +7,9 @@ const SwitchThemeLogo = () => {
     const { setTheme, theme } = useTheme();
   
     return (
-        <div className='border p-2 rounded-full cursor-pointer' onClick={() => setTheme((theme === "dark" ? "light" : "dark"))}>
-            <Image src="/logo.svg" alt='logo' width={25} height={25} />
+        <div className='cursor-pointer overflow-hidden flex items-center'>
+            <Image onClick={() => setTheme((theme === "dark" ? "light" : "dark"))} className='border object-contain rounded-full h-12 w-12' src="/g20.png" alt='logo' width={40} height={80} />
+            <Image className='border object-contain p-2 bg-white rounded-full h-12 w-12 ml-4' src="/emblem.png" alt='logo' width={40} height={80} />
         </div>
     );
 }

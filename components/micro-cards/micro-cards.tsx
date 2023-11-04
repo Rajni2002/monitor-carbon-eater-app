@@ -51,8 +51,8 @@ const MicroCards = () => {
                 <>
                     <Card className='backdrop-blur-sm bg-black/5 p-4'>
                         <h4 className='text-md font-semibold text-gray-500'>Temperature</h4>
-                        <h2 className='text-2xl mt-3 font-bold'>{
-                            appState.weather?.data?.main?.temp}˚C</h2>
+                        <h2 className='text-2xl mt-3 font-bold'>
+                            {Math.round(appState.weather?.data?.main?.temp - 273)}˚C</h2>
                     </Card>
                     <Card className='backdrop-blur-sm bg-black/5 p-4'>
                         <h4 className='text-md font-semibold text-gray-500'>Windspeed</h4>

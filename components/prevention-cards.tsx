@@ -29,7 +29,7 @@ const PreventionCard = ({ path, text }: PreventionCardType) => {
     return (
         <Card className='backdrop-blur-sm p-4 my-4'>
             <Image src={path} alt={text} className="rounded-md object-cover" width={80} height={80}/>
-            <p className='mt-4 text-gray-600'>
+            <p className='mt-4 text-gray-600 dark:text-gray-400'>
                 {text}
             </p>
         </Card>

@@ -16,7 +16,7 @@ import PlanTheTrip from './plan-the-trip/plan-the-trip';
 const Main = () => {
     const { appState } = useAppContext();
     const [open, setOpen] = useState<boolean>(false);
-    const [alertBeacon, setAlertBeacon] = useState<boolean>(false);
+    const [alertBeacon, setAlertBeacon] = useState<boolean>(true);
 
     const { socket } = useSocket();
 
